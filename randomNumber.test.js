@@ -68,8 +68,8 @@ describe("randoom probability test ", () => {
                 c2+=1;
             }
         }
-        expect(+c1/10).toBeWithinRange(73,77)
-        expect(+c2/10).toBeWithinRange(23,27)
+        expect(+c1/10).toBeWithinRange(72,78)
+        expect(+c2/10).toBeWithinRange(22,28)
     });
     
     test('random probability for 100 itration',()=>{
@@ -81,8 +81,8 @@ describe("randoom probability test ", () => {
                 c2+=1;
             }
         }
-        expect(+c1).toBeWithinRange(70,80)
-        expect(+c2).toBeWithinRange(20,30)
+        expect(+c1).toBeWithinRange(70,90)
+        expect(+c2).toBeWithinRange(10,30)
     });
     
   });

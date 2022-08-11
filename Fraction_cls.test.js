@@ -102,8 +102,7 @@ describe("division", () => {
 
 describe("simplyfy", () => {
     
-    test('check for non integer value',()=>{
-         
+    test('check for non integer value',()=>{        
         let mr= new Fraction(1.5,'fg');
        expect(mr.simplify()).toBe("numerator or denominator must be integer");
        })
@@ -132,9 +131,19 @@ describe("simplyfy", () => {
             let mr= new Fraction(6,18);
             expect(mr.simplify()).toBe("1/3")
         })
+        
+        test('simplyfy -6/18',()=>{
+            let mr= new Fraction(-6,18);
+            expect(mr.simplify()).toBe("-1/3")
+        })
 
-    test('simplyfy 6/18',()=>{
-            let mr= new Fraction(6,18);
+        test('simplyfy 6/-18',()=>{
+            let mr= new Fraction(6,-18);
+            expect(mr.simplify()).toBe("-1/3")
+        })
+    
+        test('simplyfy -6/-18',()=>{
+            let mr= new Fraction(-6,-18);
             expect(mr.simplify()).toBe("1/3")
         })
 

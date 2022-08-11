@@ -1,12 +1,15 @@
 
 class Fraction{
 
+ 
     constructor(a,b){
  
         this.a = a;
-        this.b = b;        
+        this.b = b;     
+        let flag=false;  
+        
     }
-
+    
     sum(){
         if(Number.isInteger(this.a)==false | Number.isInteger(this.b)==false){
 
@@ -49,9 +52,13 @@ class Fraction{
 
     frac(num){
         let temp;
-        let i=2;
-        temp=num;
+        let i=2;        
         let fract=[];
+        if(num<0){
+            this.flag=!this.flag;
+        }
+        temp=Math.abs(num);
+
             while(i<=temp){
                 if(temp==1){
                     break;
@@ -64,7 +71,8 @@ class Fraction{
                 else{
                     i+=1
                 }
-            }    
+            }   
+
         return fract;        //fractonal unit of small numbers
 
     }
@@ -72,10 +80,9 @@ class Fraction{
 
     simplify(){
         let n,d,nf,df;        
-        let flag=false;
         n=this.a;
         d=this.b;
-        if(Number.isInteger(n)==false | Number.isInteger(d)==false){
+             if(Number.isInteger(n)==false | Number.isInteger(d)==false){
 
               return "numerator or denominator must be integer";
             }            
@@ -85,15 +92,13 @@ class Fraction{
             if(n==0){
                 return '0';
             }
-    
+   
          nf =this.frac(n);
          df=this.frac(d);
-         
+        
         let Flslength= Math.max(nf.length,df.length);
         let maxLengthArr = nf.length >= df.length ? 'nf' : 'df'
-        let nflen,dflen;
-        nflen=nf.length;
-        dflen=df.length;
+     
         const nfCopy = [...nf,1]
         const dfCopy = [...df,1]
         for(var i=0;i<Flslength;i++){      
@@ -121,12 +126,19 @@ class Fraction{
                 }
             }
         }
+
         const finalNumerator = nfCopy.reduce((acc,val)=> {
             return acc * val
         }, 1)
         const finalDenomenator = dfCopy.reduce((acc,val)=> {
             return acc * val
         }, 1)
+
+
+        
+        if(this.flag==true){
+            return `-${finalNumerator}/${finalDenomenator}`
+        }
         return `${finalNumerator}/${finalDenomenator}`
     }
 }
