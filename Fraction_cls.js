@@ -71,29 +71,21 @@ class Fraction{
 
 
     simplify(){
-        let n,d,nf,df;
+        let n,d,nf,df;        
+        let flag=false;
         n=this.a;
         d=this.b;
-            if(Number.isInteger(n)==false | Number.isInteger(d)==false){
+        if(Number.isInteger(n)==false | Number.isInteger(d)==false){
 
               return "numerator or denominator must be integer";
-            }
-            if(n==d){
-                return `1/1`;
-            }
-
-            if(d==1){
-                return  `${n}/1`;
-            }
-
+            }            
             if(d==0){
                 return "You can't divided by zero";
             }
-
             if(n==0){
                 return '0';
             }
-        
+    
          nf =this.frac(n);
          df=this.frac(d);
          
