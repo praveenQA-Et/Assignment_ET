@@ -59,30 +59,5 @@ describe("randoom probability test ", () => {
         expect(+c1/100).toBeWithinRange(74,76)
         expect(+c2/100).toBeWithinRange(24,26)
     });
-    test('random probability for 1000 itration',()=>{
-        var c1=0,c2 =0;
-        for(var i=0;i<1000;i++){
-            if(randomN75()!=true){
-                c1+=1;
-            }else{
-                c2+=1;
-            }
-        }
-        expect(+c1/10).toBeWithinRange(72,78)
-        expect(+c2/10).toBeWithinRange(22,28)
-    });
-    
-    test('random probability for 100 itration',()=>{
-        var c1=0,c2 =0;
-        for(var i=0;i<100;i++){
-            if(randomN75()!=true){
-                c1+=1;
-            }else{
-                c2+=1;
-            }
-        }
-        expect(+c1).toBeWithinRange(70,90)
-        expect(+c2).toBeWithinRange(10,30)
-    });
     
   });
